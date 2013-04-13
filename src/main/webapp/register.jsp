@@ -26,6 +26,22 @@
 			})
 			alert("1");
 		})
+
+		$('#userName').blur(function() {
+			$.ajax({
+				url : '/ajax',
+				data : {
+					userName : $('#userName').val()
+				},
+				success : function(data) {
+					alert(data.result);
+				},
+				error : function() {
+					alert("bad!");
+				}
+			})
+
+		})
 	})
 </script>
 <style type="text/css">
@@ -36,7 +52,7 @@
 </head>
 <body>
 	<form action="/add" method="post">
-		<input type="text" name="user.userName" id="blur" /><br /> <input
+		<input type="text" name="user.userName" id="userName" /><br /> <input
 			type="submit" value="submit" />
 	</form>
 	<button id="click">ajax</button>
